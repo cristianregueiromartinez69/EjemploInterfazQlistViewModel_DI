@@ -1,8 +1,9 @@
 import sys
 
+from PyQt6.QtCore import QStringListModel
 from PyQt6.QtGui import QPalette, QColor
 from PyQt6.QtWidgets import (QMainWindow, QApplication, QVBoxLayout, QWidget,
-                             QStackedLayout, QComboBox, QTabWidget)
+                             QStackedLayout, QComboBox, QTabWidget, QListView)
 
 from CajaColor import CajaColor
 
@@ -15,6 +16,14 @@ class MainWindow(QMainWindow):
         self.setFixedSize(400, 400)
 
         self.tab_widget = QTabWidget(self)
+
+        self.list_view = QListView(self)
+
+        modelo = QStringListModel()
+        elementos = ["elemento 1", "elemento 2", "elemento 3", "elemento 4", "elemento 5", "elemento 6", "elemento 7", "elemento 8", "elemento 9", "elemento 10", "elemento 11", "elemento 12", "elemento 13", "elemento 14", "elemento 15"]
+        modelo.setStringList(elementos)
+
+        self.list_view.setModel(modelo)
 
         centralLayout = QVBoxLayout()
 
@@ -36,6 +45,7 @@ class MainWindow(QMainWindow):
 
         centralLayout.addWidget(self.tab_widget)
         centralLayout.addWidget(combo_colores)
+        centralLayout.addWidget(self.list_view)
         container = QWidget()
         container.setLayout(centralLayout)
         self.setCentralWidget(container)
