@@ -20,7 +20,8 @@ class MainWindow(QMainWindow):
         self.tareas = [
             (False,"Estudiar DI"),
             (True, "Estudiar PMDM"),
-            (False, "Mirar netflix")
+            (False, "Mirar netflix"),
+            (True, "mirar futbol")
         ]
 
         # Crear el modelo
@@ -58,7 +59,7 @@ class MainWindow(QMainWindow):
     def on_button_borrar(self):
         indices = self.lista_vista.selectedIndexes()
         if indices:
-            for i in indices:
+            for i in sorted(indices, reverse=True):
                 del self.modelo.tarefas[i.row()]
 
             self.modelo.layoutChanged.emit()
