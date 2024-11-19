@@ -56,7 +56,14 @@ class MainWindow(QMainWindow):
         pass
 
     def on_button_borrar(self):
-        pass
+        indices = self.lista_vista.selectedIndexes()
+        if indices:
+            for i in indices:
+                del self.modelo.tarefas[i.row()]
+
+            self.modelo.layoutChanged.emit()
+            self.lista_vista.clearSelection()
+
 
     def on_botton_add_list(self):
        texto_añadir =  self.layoutTexto.texto.text().strip()
@@ -75,6 +82,6 @@ if __name__ == "__main__":
     app.exec()
 
 
-
+#Todo: borrar, tenemos que detectar lo que este seleccionado para borrarlo
 
 
