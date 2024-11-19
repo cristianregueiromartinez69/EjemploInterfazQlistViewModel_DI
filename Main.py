@@ -63,6 +63,7 @@ class MainWindow(QMainWindow):
        if texto_añadir:
            self.modelo.tarefas.append((False, texto_añadir))
            self.modelo.layoutChanged.emit()
+           self.layoutTexto.texto.clear()
 
 
 
