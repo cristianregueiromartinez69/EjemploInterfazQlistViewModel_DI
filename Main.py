@@ -1,10 +1,8 @@
 import sys
 
-from PyQt6.QtCore import QStringListModel
 from PyQt6.QtWidgets import (QMainWindow, QApplication, QVBoxLayout, QWidget,
-                             QComboBox, QTabWidget, QListView, QPushButton)
+                             QListView, QPushButton)
 
-from CajaColor import CajaColor
 from ModeloListaTareas import ModeloTareas
 from ButtonsAñadir import Buttons
 from TextoLista import TextoLista

@@ -1,10 +1,6 @@
-import sys
-from cProfile import label
 
-from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QPalette, QColor
-from PyQt6.QtWidgets import (QMainWindow, QApplication, QVBoxLayout, QPushButton, QWidget, QLabel, QLineEdit,
-                             QGridLayout)
+from PyQt6.QtWidgets import (QWidget)
 
 
 class CajaColor(QWidget):

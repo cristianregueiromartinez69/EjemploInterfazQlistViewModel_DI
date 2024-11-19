@@ -1,12 +1,9 @@
-import sys
-from cProfile import label
-
 from PyQt6.QtCore import Qt, QAbstractListModel
-from PyQt6.QtGui import QPalette, QColor, QImage
-from PyQt6.QtWidgets import (QMainWindow, QApplication, QVBoxLayout, QPushButton, QWidget, QLabel, QLineEdit,
-                             QGridLayout)
+from PyQt6.QtGui import QImage
+
 
 tick = QImage("tick.png")
+noHecha = QImage("noHecha.png")
 class ModeloTareas (QAbstractListModel):
     def __init__(self, tarefas = None):
         super().__init__()
@@ -21,6 +18,8 @@ class ModeloTareas (QAbstractListModel):
             estado,_ = self.tarefas[index.row()]
             if estado:
                 return tick
+            else:
+                return noHecha
 
     def rowCount(self, index):
         return len(self.tarefas)
