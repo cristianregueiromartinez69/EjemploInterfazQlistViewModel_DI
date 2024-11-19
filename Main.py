@@ -18,7 +18,9 @@ class MainWindow(QMainWindow):
 
         # Crear una lista de tareas
         self.tareas = [
-
+            (False,"Estudiar DI"),
+            (True, "Estudiar PMDM"),
+            (False, "Mirar netflix")
         ]
 
         # Crear el modelo
@@ -53,11 +55,17 @@ class MainWindow(QMainWindow):
     def on_button_accept(self):
         pass
 
-    def on_botton_add_list(self):
-        pass
-
     def on_button_borrar(self):
         pass
+
+    def on_botton_add_list(self):
+       texto_añadir =  self.layoutTexto.texto.text().strip()
+       if texto_añadir:
+           self.modelo.tarefas.append((False, texto_añadir))
+           self.modelo.layoutChanged.emit()
+
+
+
 
 
 if __name__ == "__main__":
