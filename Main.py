@@ -13,13 +13,17 @@ class MainWindow(QMainWindow):
 
         super().__init__()
         self.setWindowTitle("TODO")
+        self.setFixedSize(400, 400)
 
         # Crear una lista de tareas
         self.tareas = [
             (False,"Estudiar DI"),
             (True, "Estudiar PMDM"),
             (False, "Mirar netflix"),
-            (True, "mirar futbol")
+            (True, "mirar futbol"),
+            (False, "hacer examen de PMDM"),
+            (True, "morirme")
+
         ]
 
         # Crear el modelo
@@ -52,7 +56,16 @@ class MainWindow(QMainWindow):
         self.show()
 
     def on_button_accept(self):
-        pass
+        indices = self.lista_vista.selectedIndexes()
+
+        if indices:
+            for i in indices:
+                _, texto = self.modelo.tarefas[i.row()]
+                self.modelo.tarefas[i.row()] = (True, texto)
+                self.modelo.dataChanged.emit(i,i)
+
+            self.lista_vista.clearSelection()
+
 
     def on_button_borrar(self):
         indices = self.lista_vista.selectedIndexes()
