@@ -31,13 +31,17 @@ class MainWindow(QMainWindow):
 
         # Crear un layout y agregar la vista
         layout = QVBoxLayout()
-        layoutButton = Buttons()
-        layoutTexto = TextoLista()
-        self.BottonAddList = QPushButton("Add to list")
+        self.layoutButton = Buttons()
+        self.layoutTexto = TextoLista()
+        self.bottonAddList = QPushButton("Add TODO")
+
+        self.layoutButton.boton_añadir.clicked.connect(self.on_button_accept)
+        self.layoutButton.boton_borrar.clicked.connect(self.on_button_borrar)
+        self.bottonAddList.clicked.connect(self.on_botton_add_list)
         layout.addWidget(self.lista_vista)
-        layout.addLayout(layoutButton)
-        layout.addLayout(layoutTexto)
-        layout.addWidget(self.BottonAddList)
+        layout.addLayout(self.layoutButton)
+        layout.addLayout(self.layoutTexto)
+        layout.addWidget(self.bottonAddList)
 
 
         # Crear el widget central
@@ -45,6 +49,15 @@ class MainWindow(QMainWindow):
         contenedor.setLayout(layout)
         self.setCentralWidget(contenedor)
         self.show()
+
+    def on_button_accept(self):
+        pass
+
+    def on_botton_add_list(self):
+        pass
+
+    def on_button_borrar(self):
+        pass
 
 
 if __name__ == "__main__":
